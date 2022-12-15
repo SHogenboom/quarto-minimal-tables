@@ -1,19 +1,22 @@
 project:
-  type: book
-  output-dir: "_overviews"
-
-book:
+  type: website
+  output-dir: "docs"
+website:
   title: "Minimal Effort Tables in Quarto"
-  author: "Sally A.M. Hogenboom"
+  # author: "Sally A.M. Hogenboom"
   # DATE
-  date: today # applied when book is rendered
-  date-format: "D MMMM, YYYY" # 21st of March, 2022
+  # date: today # applied when book is rendered
+  #date-format: "D MMMM, YYYY" # 21st of March, 2022
   # OUTPUT FORMAT
   # Extention added after generating the required format (e.g., OpenMenS.pdf)
-  output-file: "QuartoTableOverview"
+  # output-file: "QuartoTableOverview"
   # CONTENT
-  chapters:
-    - index.qmd
+  navbar:
+    left:
+     - href: index.html
+       text: "HTML"
+     - href: index.pdf
+       text: "PDF"
 
 format:
   html:

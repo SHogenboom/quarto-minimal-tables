@@ -1,1 +1,0 @@
-Sitemap: https://SHogenboom.github.io/quarto-minimal-tables/sitemap.xml

@@ -13,9 +13,9 @@ website:
   # CONTENT
   navbar:
     left:
-     - href: index.html
+     - href: overview.html
        text: "HTML"
-     - href: index.pdf
+     - href: overview.pdf
        text: "PDF"
 
 format:

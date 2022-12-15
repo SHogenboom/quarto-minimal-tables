@@ -1201,22 +1201,6 @@
       "Repository": "CRAN",
       "Hash": "c42bfcec3fa6a0cce17ce1f8bc684f88",
       "Requirements": []
-    },
-    "ztable": {
-      "Package": "ztable",
-      "Version": "0.2.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "8a2c610f810dfcabe6da826247b798e1",
-      "Requirements": [
-        "RColorBrewer",
-        "flextable",
-        "magrittr",
-        "officer",
-        "rstudioapi",
-        "scales",
-        "stringr"
-      ]
     }
   }
 }

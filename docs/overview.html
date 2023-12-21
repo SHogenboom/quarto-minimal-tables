@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.258">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -52,26 +52,28 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
-<link href="site_libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="site_libs/datatables-binding-0.26/datatables.js"></script>
+<script src="site_libs/datatables-binding-0.31/datatables.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <script src="site_libs/core-js-2.5.3/shim.min.js"></script>
-<script src="site_libs/react-17.0.0/react.min.js"></script>
-<script src="site_libs/react-17.0.0/react-dom.min.js"></script>
+<script src="site_libs/react-18.2.0/react.min.js"></script>
+<script src="site_libs/react-18.2.0/react-dom.min.js"></script>
 <script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
-<link href="site_libs/reactable-0.4.1/reactable.css" rel="stylesheet">
-<script src="site_libs/reactable-binding-0.4.1/reactable.js"></script>
+<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 <link href="site_libs/handsontable-6.2.2/handsontable.full.min.css" rel="stylesheet">
 <script src="site_libs/handsontable-6.2.2/handsontable.full.min.js"></script>
 <script src="site_libs/handsontable-6.2.2/all.min.js"></script>
@@ -96,21 +98,23 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Minimal Effort Tables in Quarto</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./overview.html" aria-current="page">
+    <a class="nav-link active" href="./overview.html" rel="" target="" aria-current="page">
  <span class="menu-text">HTML</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./overview.pdf">
+    <a class="nav-link" href="./overview.pdf" rel="" target="">
  <span class="menu-text">PDF</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -118,49 +122,25 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#knitrkable" id="toc-knitrkable" class="nav-link active" data-scroll-target="#knitrkable">knitr::kable()</a></li>
-  <li><a href="#kableextrakable" id="toc-kableextrakable" class="nav-link" data-scroll-target="#kableextrakable">kableExtra::kable()</a></li>
-  <li><a href="#flextableflextable" id="toc-flextableflextable" class="nav-link" data-scroll-target="#flextableflextable">flextable::flextable()</a></li>
-  <li><a href="#huxtablehux" id="toc-huxtablehux" class="nav-link" data-scroll-target="#huxtablehux">huxtable::hux()</a></li>
-  <li><a href="#dtdatatable" id="toc-dtdatatable" class="nav-link" data-scroll-target="#dtdatatable">DT::datatable()</a></li>
-  <li><a href="#formattableformattable" id="toc-formattableformattable" class="nav-link" data-scroll-target="#formattableformattable">formattable::formattable()</a></li>
-  <li><a href="#reactablereactable" id="toc-reactablereactable" class="nav-link" data-scroll-target="#reactablereactable">reactable::reactable()</a></li>
-  <li><a href="#rhandsontablerhandsontable" id="toc-rhandsontablerhandsontable" class="nav-link" data-scroll-target="#rhandsontablerhandsontable">rhandsontable::rhandsontable()</a></li>
-  <li><a href="#pixiedust" id="toc-pixiedust" class="nav-link" data-scroll-target="#pixiedust">pixiedust</a></li>
-  <li><a href="#stargazerstargazer" id="toc-stargazerstargazer" class="nav-link" data-scroll-target="#stargazerstargazer">stargazer::stargazer</a></li>
-  <li><a href="#xtablextable" id="toc-xtablextable" class="nav-link" data-scroll-target="#xtablextable">xtable::xtable()</a></li>
-  <li><a href="#tangramtangram" id="toc-tangramtangram" class="nav-link" data-scroll-target="#tangramtangram">tangram::tangram()</a></li>
-  <li><a href="#ztableztable" id="toc-ztableztable" class="nav-link" data-scroll-target="#ztableztable">ztable::ztable()</a></li>
-  <li><a href="#condformatcondformat" id="toc-condformatcondformat" class="nav-link" data-scroll-target="#condformatcondformat">condformat::condformat()</a></li>
-  <li><a href="#panderpandoc.table" id="toc-panderpandoc.table" class="nav-link" data-scroll-target="#panderpandoc.table">pander::pandoc.table()</a></li>
-  <li><a href="#papajaapa_table" id="toc-papajaapa_table" class="nav-link" data-scroll-target="#papajaapa_table">papaja::apa_table()</a></li>
-  <li><a href="#gtgt" id="toc-gtgt" class="nav-link" data-scroll-target="#gtgt">gt::gt()</a></li>
-  </ul>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    
 </nav>
-</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    </div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="overview.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<div class="cell">
-
-</div>
 <section id="knitrkable" class="level1">
 <h1>knitr::kable()</h1>
-<p>This is a cross-reference to <a href="#tbl-kable">Table&nbsp;1</a>, rendered with the default package <a href="https://www.rdocumentation.org/packages/knitr/versions/1.41">knitr</a> version 1.41.</p>
+<p>This is a cross-reference to <a href="#tbl-kable">Table&nbsp;1</a>, rendered with the default package <a href="https://www.rdocumentation.org/packages/knitr/versions/1.41">knitr</a> version 1.45.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-kable">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Table&nbsp;1: knitr::kable()</caption>
 <colgroup>
 <col style="width: 3%">
@@ -405,247 +385,248 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-kableExtra">
-
-<table><caption>Table&nbsp;2:  kableExtra::kable() </caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> studyName </th>
-   <th style="text-align:right;"> Sample Number </th>
-   <th style="text-align:left;"> Species </th>
-   <th style="text-align:left;"> Region </th>
-   <th style="text-align:left;"> Island </th>
-   <th style="text-align:left;"> Stage </th>
-   <th style="text-align:left;"> Individual ID </th>
-   <th style="text-align:left;"> Clutch Completion </th>
-   <th style="text-align:left;"> Date Egg </th>
-   <th style="text-align:right;"> Culmen Length (mm) </th>
-   <th style="text-align:right;"> Culmen Depth (mm) </th>
-   <th style="text-align:right;"> Flipper Length (mm) </th>
-   <th style="text-align:right;"> Body Mass (g) </th>
-   <th style="text-align:left;"> Sex </th>
-   <th style="text-align:right;"> Delta 15 N (o/oo) </th>
-   <th style="text-align:right;"> Delta 13 C (o/oo) </th>
-   <th style="text-align:left;"> Comments </th>
-  </tr>
- </thead>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;2: kableExtra::kable()</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">studyName</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sample Number</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Species</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Region</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Island</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Stage</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Individual ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clutch Completion</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Date Egg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Culmen Length (mm)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Culmen Depth (mm)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Flipper Length (mm)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Body Mass (g)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Sex</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Delta 15 N (o/oo)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Delta 13 C (o/oo)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N1A1 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-11 </td>
-   <td style="text-align:right;"> 39.1 </td>
-   <td style="text-align:right;"> 18.7 </td>
-   <td style="text-align:right;"> 181 </td>
-   <td style="text-align:right;"> 3750 </td>
-   <td style="text-align:left;"> MALE </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> Not enough blood for isotopes. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N1A2 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-11 </td>
-   <td style="text-align:right;"> 39.5 </td>
-   <td style="text-align:right;"> 17.4 </td>
-   <td style="text-align:right;"> 186 </td>
-   <td style="text-align:right;"> 3800 </td>
-   <td style="text-align:left;"> FEMALE </td>
-   <td style="text-align:right;"> 8.94956 </td>
-   <td style="text-align:right;"> -24.69454 </td>
-   <td style="text-align:left;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N2A1 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-16 </td>
-   <td style="text-align:right;"> 40.3 </td>
-   <td style="text-align:right;"> 18.0 </td>
-   <td style="text-align:right;"> 195 </td>
-   <td style="text-align:right;"> 3250 </td>
-   <td style="text-align:left;"> FEMALE </td>
-   <td style="text-align:right;"> 8.36821 </td>
-   <td style="text-align:right;"> -25.33302 </td>
-   <td style="text-align:left;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N2A2 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-16 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> Adult not sampled. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N3A1 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-16 </td>
-   <td style="text-align:right;"> 36.7 </td>
-   <td style="text-align:right;"> 19.3 </td>
-   <td style="text-align:right;"> 193 </td>
-   <td style="text-align:right;"> 3450 </td>
-   <td style="text-align:left;"> FEMALE </td>
-   <td style="text-align:right;"> 8.76651 </td>
-   <td style="text-align:right;"> -25.32426 </td>
-   <td style="text-align:left;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N3A2 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-16 </td>
-   <td style="text-align:right;"> 39.3 </td>
-   <td style="text-align:right;"> 20.6 </td>
-   <td style="text-align:right;"> 190 </td>
-   <td style="text-align:right;"> 3650 </td>
-   <td style="text-align:left;"> MALE </td>
-   <td style="text-align:right;"> 8.66496 </td>
-   <td style="text-align:right;"> -25.29805 </td>
-   <td style="text-align:left;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N4A1 </td>
-   <td style="text-align:left;"> No </td>
-   <td style="text-align:left;"> 2007-11-15 </td>
-   <td style="text-align:right;"> 38.9 </td>
-   <td style="text-align:right;"> 17.8 </td>
-   <td style="text-align:right;"> 181 </td>
-   <td style="text-align:right;"> 3625 </td>
-   <td style="text-align:left;"> FEMALE </td>
-   <td style="text-align:right;"> 9.18718 </td>
-   <td style="text-align:right;"> -25.21799 </td>
-   <td style="text-align:left;"> Nest never observed with full clutch. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N4A2 </td>
-   <td style="text-align:left;"> No </td>
-   <td style="text-align:left;"> 2007-11-15 </td>
-   <td style="text-align:right;"> 39.2 </td>
-   <td style="text-align:right;"> 19.6 </td>
-   <td style="text-align:right;"> 195 </td>
-   <td style="text-align:right;"> 4675 </td>
-   <td style="text-align:left;"> MALE </td>
-   <td style="text-align:right;"> 9.46060 </td>
-   <td style="text-align:right;"> -24.89958 </td>
-   <td style="text-align:left;"> Nest never observed with full clutch. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N5A1 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-09 </td>
-   <td style="text-align:right;"> 34.1 </td>
-   <td style="text-align:right;"> 18.1 </td>
-   <td style="text-align:right;"> 193 </td>
-   <td style="text-align:right;"> 3475 </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> No blood sample obtained. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PAL0708 </td>
-   <td style="text-align:right;"> 10 </td>
-   <td style="text-align:left;"> Adelie Penguin (Pygoscelis adeliae) </td>
-   <td style="text-align:left;"> Anvers </td>
-   <td style="text-align:left;"> Torgersen </td>
-   <td style="text-align:left;"> Adult, 1 Egg Stage </td>
-   <td style="text-align:left;"> N5A2 </td>
-   <td style="text-align:left;"> Yes </td>
-   <td style="text-align:left;"> 2007-11-09 </td>
-   <td style="text-align:right;"> 42.0 </td>
-   <td style="text-align:right;"> 20.2 </td>
-   <td style="text-align:right;"> 190 </td>
-   <td style="text-align:right;"> 4250 </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 9.13362 </td>
-   <td style="text-align:right;"> -25.09368 </td>
-   <td style="text-align:left;"> No blood sample obtained for sexing. </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N1A1</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-11</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">3750</td>
+<td style="text-align: left;">MALE</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Not enough blood for isotopes.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N1A2</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-11</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">17.4</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">3800</td>
+<td style="text-align: left;">FEMALE</td>
+<td style="text-align: right;">8.94956</td>
+<td style="text-align: right;">-24.69454</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N2A1</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-16</td>
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">3250</td>
+<td style="text-align: left;">FEMALE</td>
+<td style="text-align: right;">8.36821</td>
+<td style="text-align: right;">-25.33302</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N2A2</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-16</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Adult not sampled.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N3A1</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-16</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">3450</td>
+<td style="text-align: left;">FEMALE</td>
+<td style="text-align: right;">8.76651</td>
+<td style="text-align: right;">-25.32426</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N3A2</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-16</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">3650</td>
+<td style="text-align: left;">MALE</td>
+<td style="text-align: right;">8.66496</td>
+<td style="text-align: right;">-25.29805</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N4A1</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">2007-11-15</td>
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">17.8</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">3625</td>
+<td style="text-align: left;">FEMALE</td>
+<td style="text-align: right;">9.18718</td>
+<td style="text-align: right;">-25.21799</td>
+<td style="text-align: left;">Nest never observed with full clutch.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N4A2</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">2007-11-15</td>
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">4675</td>
+<td style="text-align: left;">MALE</td>
+<td style="text-align: right;">9.46060</td>
+<td style="text-align: right;">-24.89958</td>
+<td style="text-align: left;">Nest never observed with full clutch.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N5A1</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-09</td>
+<td style="text-align: right;">34.1</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">3475</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">No blood sample obtained.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PAL0708</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: left;">Anvers</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">Adult, 1 Egg Stage</td>
+<td style="text-align: left;">N5A2</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">2007-11-09</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">20.2</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">4250</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">9.13362</td>
+<td style="text-align: right;">-25.09368</td>
+<td style="text-align: left;">No blood sample obtained for sexing.</td>
+</tr>
 </tbody>
 </table>
-
 </div>
+
+
 </div>
 </div>
 </section>
 <section id="flextableflextable" class="level1">
 <h1>flextable::flextable()</h1>
-<p>This is a cross-reference to <a href="#tbl-flextable">Table&nbsp;3</a>, rendered with the package <a href="https://davidgohel.github.io/flextable/">flextable</a> version 0.8.3.</p>
+<p>This is a cross-reference to <a href="#tbl-flextable">Table&nbsp;3</a>, rendered with the package <a href="https://davidgohel.github.io/flextable/">flextable</a> version 0.9.4.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-flextable">
 
-<div class="tabwid"><style>.cl-e0539172{}.cl-e03602ba{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e0415e62{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e0415e76{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e041b9b6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e041b9c0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e041b9ca{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e041b9d4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e041b9de{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e041b9e8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-e0539172"><caption>Table&nbsp;3:  flextable::flextable() </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">studyName</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Sample Number</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Species</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Region</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Island</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Stage</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Individual ID</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Clutch Completion</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Date Egg</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Culmen Length (mm)</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Culmen Depth (mm)</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Flipper Length (mm)</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Body Mass (g)</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Sex</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Delta 15 N (o/oo)</span></p></th><th class="cl-e041b9c0"><p class="cl-e0415e76"><span class="cl-e03602ba">Delta 13 C (o/oo)</span></p></th><th class="cl-e041b9b6"><p class="cl-e0415e62"><span class="cl-e03602ba">Comments</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">1</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N1A1</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-11</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">39.1</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">18.7</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">181</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,750</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">MALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Not enough blood for isotopes.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N1A2</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-11</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">39.5</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">17.4</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">186</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,800</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">FEMALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">8.94956</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">-24.69454</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N2A1</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-16</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">40.3</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">18.0</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">195</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,250</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">FEMALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">8.36821</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">-25.33302</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">4</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N2A2</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-16</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult not sampled.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">5</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N3A1</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-16</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">36.7</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">19.3</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">193</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,450</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">FEMALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">8.76651</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">-25.32426</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">6</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N3A2</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-16</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">39.3</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">20.6</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">190</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,650</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">MALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">8.66496</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">-25.29805</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">7</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N4A1</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">No</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-15</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">38.9</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">17.8</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">181</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,625</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">FEMALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">9.18718</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">-25.21799</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Nest never observed with full clutch.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">8</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N4A2</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">No</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-15</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">39.2</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">19.6</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">195</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">4,675</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">MALE</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">9.46060</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">-24.89958</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Nest never observed with full clutch.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">9</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">N5A1</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-09</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">34.1</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">18.1</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">193</span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba">3,475</span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9d4"><p class="cl-e0415e76"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9ca"><p class="cl-e0415e62"><span class="cl-e03602ba">No blood sample obtained.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">PAL0708</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">10</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">Anvers</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">Torgersen</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">Adult, 1 Egg Stage</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">N5A2</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">Yes</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">2007-11-09</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">42.0</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">20.2</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">190</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">4,250</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba"></span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">9.13362</span></p></td><td class="cl-e041b9e8"><p class="cl-e0415e76"><span class="cl-e03602ba">-25.09368</span></p></td><td class="cl-e041b9de"><p class="cl-e0415e62"><span class="cl-e03602ba">No blood sample obtained for sexing.</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-fdaff0f0{}.cl-fda0cb70{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fda733ac{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fda733c0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fda75ed6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fda75eea{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fda75eeb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fda75ef4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fda75f08{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fda75f09{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-fdaff0f0"><caption>Table&nbsp;3:  <p>flextable::flextable()</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">studyName</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Sample Number</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Species</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Region</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Island</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Stage</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Individual ID</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Clutch Completion</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Date Egg</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Culmen Length (mm)</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Culmen Depth (mm)</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Flipper Length (mm)</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Body Mass (g)</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Sex</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Delta 15 N (o/oo)</span></p></th><th class="cl-fda75eea"><p class="cl-fda733c0"><span class="cl-fda0cb70">Delta 13 C (o/oo)</span></p></th><th class="cl-fda75ed6"><p class="cl-fda733ac"><span class="cl-fda0cb70">Comments</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">1</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N1A1</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-11</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">39.1</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">18.7</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">181</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,750</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">MALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Not enough blood for isotopes.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N1A2</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-11</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">39.5</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">17.4</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">186</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,800</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">FEMALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">8.94956</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">-24.69454</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N2A1</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-16</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">40.3</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">18.0</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">195</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,250</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">FEMALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">8.36821</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">-25.33302</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">4</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N2A2</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-16</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult not sampled.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">5</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N3A1</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-16</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">36.7</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">19.3</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">193</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,450</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">FEMALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">8.76651</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">-25.32426</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">6</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N3A2</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-16</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">39.3</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">20.6</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">190</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,650</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">MALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">8.66496</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">-25.29805</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">7</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N4A1</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">No</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-15</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">38.9</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">17.8</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">181</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,625</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">FEMALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">9.18718</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">-25.21799</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Nest never observed with full clutch.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">8</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N4A2</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">No</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-15</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">39.2</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">19.6</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">195</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">4,675</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">MALE</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">9.46060</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">-24.89958</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Nest never observed with full clutch.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">9</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">N5A1</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-09</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">34.1</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">18.1</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">193</span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70">3,475</span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75ef4"><p class="cl-fda733c0"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75eeb"><p class="cl-fda733ac"><span class="cl-fda0cb70">No blood sample obtained.</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">PAL0708</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">10</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">Anvers</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">Torgersen</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">Adult, 1 Egg Stage</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">N5A2</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">Yes</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">2007-11-09</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">42.0</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">20.2</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">190</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">4,250</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70"></span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">9.13362</span></p></td><td class="cl-fda75f09"><p class="cl-fda733c0"><span class="cl-fda0cb70">-25.09368</span></p></td><td class="cl-fda75f08"><p class="cl-fda733ac"><span class="cl-fda0cb70">No blood sample obtained for sexing.</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
 </section>
 <section id="huxtablehux" class="level1">
 <h1>huxtable::hux()</h1>
-<p>This is a cross-reference to <a href="#tbl-huxtable">Table&nbsp;4</a>, rendered with the package <a href="https://hughjonesd.github.io/huxtable/">huxtable</a> version 5.5.1.</p>
+<p>This is a cross-reference to <a href="#tbl-huxtable">Table&nbsp;4</a>, rendered with the package <a href="https://hughjonesd.github.io/huxtable/">huxtable</a> version 5.5.3.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-huxtable">
 
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:tbl-huxtable"><caption>Table&nbsp;4:  huxtable::hux() </caption>
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:tbl-huxtable"><caption>Table&nbsp;4:  <p>huxtable::hux()</p> </caption>
 <colgroup><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">studyName</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Sample Number</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Species</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Region</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Island</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Stage</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Individual ID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Clutch Completion</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Date Egg</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Culmen Length (mm)</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Culmen Depth (mm)</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Flipper Length (mm)</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Body Mass (g)</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Sex</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Delta 15 N (o/oo)</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Delta 13 C (o/oo)</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Comments</th></tr>
 <tr>
@@ -676,13 +657,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dtdatatable" class="level1">
 <h1>DT::datatable()</h1>
-<p>This is a cross-reference to <strong>?@tbl-DT</strong>, rendered with the package <a href="https://github.com/rstudio/DT">DT</a> version 0.26.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<p>This is a cross-reference to <strong>?@tbl-DT</strong>, rendered with the package <a href="https://github.com/rstudio/DT">DT</a> version 0.31.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -690,20 +671,25 @@ Note
 <p>Only HTML</p>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
+<div id="tbl-DT" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="DT::datatable()">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
-<div id="htmlwidget-d5d22436429d238f4990" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d5d22436429d238f4990">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708"],[1,2,3,4,5,6,7,8,9,10],["Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)"],["Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],["Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage"],["N1A1","N1A2","N2A1","N2A2","N3A1","N3A2","N4A1","N4A2","N5A1","N5A2"],["Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","Yes"],["2007-11-11","2007-11-11","2007-11-16","2007-11-16","2007-11-16","2007-11-16","2007-11-15","2007-11-15","2007-11-09","2007-11-09"],[39.1,39.5,40.3,null,36.7,39.3,38.9,39.2,34.1,42],[18.7,17.4,18,null,19.3,20.6,17.8,19.6,18.1,20.2],[181,186,195,null,193,190,181,195,193,190],[3750,3800,3250,null,3450,3650,3625,4675,3475,4250],["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null],[null,8.94956,8.36821,null,8.76651,8.66496,9.18718,9.4606,null,9.13362],[null,-24.69454,-25.33302,null,-25.32426,-25.29805,-25.21799,-24.89958,null,-25.09368],["Not enough blood for isotopes.",null,null,"Adult not sampled.",null,null,"Nest never observed with full clutch.","Nest never observed with full clutch.","No blood sample obtained.","No blood sample obtained for sexing."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>studyName<\/th>\n      <th>Sample Number<\/th>\n      <th>Species<\/th>\n      <th>Region<\/th>\n      <th>Island<\/th>\n      <th>Stage<\/th>\n      <th>Individual ID<\/th>\n      <th>Clutch Completion<\/th>\n      <th>Date Egg<\/th>\n      <th>Culmen Length (mm)<\/th>\n      <th>Culmen Depth (mm)<\/th>\n      <th>Flipper Length (mm)<\/th>\n      <th>Body Mass (g)<\/th>\n      <th>Sex<\/th>\n      <th>Delta 15 N (o/oo)<\/th>\n      <th>Delta 13 C (o/oo)<\/th>\n      <th>Comments<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,10,11,12,13,15,16]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2d578fdd13664a235c19" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2d578fdd13664a235c19">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708"],[1,2,3,4,5,6,7,8,9,10],["Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)"],["Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],["Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage"],["N1A1","N1A2","N2A1","N2A2","N3A1","N3A2","N4A1","N4A2","N5A1","N5A2"],["Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","Yes"],["2007-11-11","2007-11-11","2007-11-16","2007-11-16","2007-11-16","2007-11-16","2007-11-15","2007-11-15","2007-11-09","2007-11-09"],[39.1,39.5,40.3,null,36.7,39.3,38.9,39.2,34.1,42],[18.7,17.4,18,null,19.3,20.6,17.8,19.6,18.1,20.2],[181,186,195,null,193,190,181,195,193,190],[3750,3800,3250,null,3450,3650,3625,4675,3475,4250],["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null],[null,8.94956,8.368209999999999,null,8.76651,8.664960000000001,9.18718,9.460599999999999,null,9.133620000000001],[null,-24.69454,-25.33302,null,-25.32426,-25.29805,-25.21799,-24.89958,null,-25.09368],["Not enough blood for isotopes.",null,null,"Adult not sampled.",null,null,"Nest never observed with full clutch.","Nest never observed with full clutch.","No blood sample obtained.","No blood sample obtained for sexing."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>studyName<\/th>\n      <th>Sample Number<\/th>\n      <th>Species<\/th>\n      <th>Region<\/th>\n      <th>Island<\/th>\n      <th>Stage<\/th>\n      <th>Individual ID<\/th>\n      <th>Clutch Completion<\/th>\n      <th>Date Egg<\/th>\n      <th>Culmen Length (mm)<\/th>\n      <th>Culmen Depth (mm)<\/th>\n      <th>Flipper Length (mm)<\/th>\n      <th>Body Mass (g)<\/th>\n      <th>Sex<\/th>\n      <th>Delta 15 N (o/oo)<\/th>\n      <th>Delta 13 C (o/oo)<\/th>\n      <th>Comments<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,10,11,12,13,15,16]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"studyName","targets":1},{"name":"Sample Number","targets":2},{"name":"Species","targets":3},{"name":"Region","targets":4},{"name":"Island","targets":5},{"name":"Stage","targets":6},{"name":"Individual ID","targets":7},{"name":"Clutch Completion","targets":8},{"name":"Date Egg","targets":9},{"name":"Culmen Length (mm)","targets":10},{"name":"Culmen Depth (mm)","targets":11},{"name":"Flipper Length (mm)","targets":12},{"name":"Body Mass (g)","targets":13},{"name":"Sex","targets":14},{"name":"Delta 15 N (o/oo)","targets":15},{"name":"Delta 13 C (o/oo)","targets":16},{"name":"Comments","targets":17}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 </section>
 <section id="formattableformattable" class="level1">
 <h1>formattable::formattable()</h1>
 <p>This is a cross-reference to <strong>?@tbl-formattable</strong>, rendered with the package <a href="https://github.com/renkun-ken/formattable">formattable</a> version 0.2.1.</p>
-<div id="tbl-formattable" class="cell tbl-parent quarto-layout-panel">
+<div id="tbl-formattable" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="formattable::formattable()">
 <div class="panel-caption table-caption">
-<p>formattable::formattable()</p>
+<p><strong>?(caption)</strong></p>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -3656,13 +3642,13 @@ No blood sample obtained for sexing.
 </section>
 <section id="reactablereactable" class="level1">
 <h1>reactable::reactable()</h1>
-<p>This is a cross-reference to <strong>?@tbl-reactable</strong>, rendered with the package <a href="https://glin.github.io/reactable/">reactable</a> version 0.4.1. <a href="https://kcuilla.github.io/reactablefmtr/index.html">reactablefmtr</a> offers an extention of the syntax for styling - but not a standalone option.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<p>This is a cross-reference to <strong>?@tbl-reactable</strong>, rendered with the package <a href="https://glin.github.io/reactable/">reactable</a> version 0.4.4. <a href="https://kcuilla.github.io/reactablefmtr/index.html">reactablefmtr</a> offers an extention of the syntax for styling - but not a standalone option.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -3670,23 +3656,28 @@ Note
 <p>Only HTML</p>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
+<div id="tbl-reactable" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="reactable::reactable()">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
-<div id="htmlwidget-1bd93e3518743cc24a55" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1bd93e3518743cc24a55">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"studyName":["PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708"],"Sample Number":[1,2,3,4,5,6,7,8,9,10],"Species":["Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)"],"Region":["Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers"],"Island":["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],"Stage":["Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage"],"Individual ID":["N1A1","N1A2","N2A1","N2A2","N3A1","N3A2","N4A1","N4A2","N5A1","N5A2"],"Clutch Completion":["Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","Yes"],"Date Egg":["2007-11-11","2007-11-11","2007-11-16","2007-11-16","2007-11-16","2007-11-16","2007-11-15","2007-11-15","2007-11-09","2007-11-09"],"Culmen Length (mm)":[39.1,39.5,40.3,"NA",36.7,39.3,38.9,39.2,34.1,42],"Culmen Depth (mm)":[18.7,17.4,18,"NA",19.3,20.6,17.8,19.6,18.1,20.2],"Flipper Length (mm)":[181,186,195,"NA",193,190,181,195,193,190],"Body Mass (g)":[3750,3800,3250,"NA",3450,3650,3625,4675,3475,4250],"Sex":["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null],"Delta 15 N (o/oo)":["NA",8.94956,8.36821,"NA",8.76651,8.66496,9.18718,9.4606,"NA",9.13362],"Delta 13 C (o/oo)":["NA",-24.69454,-25.33302,"NA",-25.32426,-25.29805,-25.21799,-24.89958,"NA",-25.09368],"Comments":["Not enough blood for isotopes.",null,null,"Adult not sampled.",null,null,"Nest never observed with full clutch.","Nest never observed with full clutch.","No blood sample obtained.","No blood sample obtained for sexing."]},"columns":[{"id":"studyName","name":"studyName","type":"character"},{"id":"Sample Number","name":"Sample Number","type":"numeric"},{"id":"Species","name":"Species","type":"character"},{"id":"Region","name":"Region","type":"character"},{"id":"Island","name":"Island","type":"character"},{"id":"Stage","name":"Stage","type":"character"},{"id":"Individual ID","name":"Individual ID","type":"character"},{"id":"Clutch Completion","name":"Clutch Completion","type":"character"},{"id":"Date Egg","name":"Date Egg","type":"Date"},{"id":"Culmen Length (mm)","name":"Culmen Length (mm)","type":"numeric"},{"id":"Culmen Depth (mm)","name":"Culmen Depth (mm)","type":"numeric"},{"id":"Flipper Length (mm)","name":"Flipper Length (mm)","type":"numeric"},{"id":"Body Mass (g)","name":"Body Mass (g)","type":"numeric"},{"id":"Sex","name":"Sex","type":"character"},{"id":"Delta 15 N (o/oo)","name":"Delta 15 N (o/oo)","type":"numeric"},{"id":"Delta 13 C (o/oo)","name":"Delta 13 C (o/oo)","type":"numeric"},{"id":"Comments","name":"Comments","type":"character"}],"dataKey":"0b3067ef925454c1c1b0e26d569b6025"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-89eacbb04f10f9ae06c9" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-89eacbb04f10f9ae06c9">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"studyName":["PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708","PAL0708"],"Sample Number":[1,2,3,4,5,6,7,8,9,10],"Species":["Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)"],"Region":["Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers","Anvers"],"Island":["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],"Stage":["Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage"],"Individual ID":["N1A1","N1A2","N2A1","N2A2","N3A1","N3A2","N4A1","N4A2","N5A1","N5A2"],"Clutch Completion":["Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","Yes"],"Date Egg":["2007-11-11","2007-11-11","2007-11-16","2007-11-16","2007-11-16","2007-11-16","2007-11-15","2007-11-15","2007-11-09","2007-11-09"],"Culmen Length (mm)":[39.1,39.5,40.3,"NA",36.7,39.3,38.9,39.2,34.1,42],"Culmen Depth (mm)":[18.7,17.4,18,"NA",19.3,20.6,17.8,19.6,18.1,20.2],"Flipper Length (mm)":[181,186,195,"NA",193,190,181,195,193,190],"Body Mass (g)":[3750,3800,3250,"NA",3450,3650,3625,4675,3475,4250],"Sex":["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null],"Delta 15 N (o/oo)":["NA",8.94956,8.36821,"NA",8.76651,8.66496,9.18718,9.4606,"NA",9.13362],"Delta 13 C (o/oo)":["NA",-24.69454,-25.33302,"NA",-25.32426,-25.29805,-25.21799,-24.89958,"NA",-25.09368],"Comments":["Not enough blood for isotopes.",null,null,"Adult not sampled.",null,null,"Nest never observed with full clutch.","Nest never observed with full clutch.","No blood sample obtained.","No blood sample obtained for sexing."]},"columns":[{"id":"studyName","name":"studyName","type":"character"},{"id":"Sample Number","name":"Sample Number","type":"numeric"},{"id":"Species","name":"Species","type":"character"},{"id":"Region","name":"Region","type":"character"},{"id":"Island","name":"Island","type":"character"},{"id":"Stage","name":"Stage","type":"character"},{"id":"Individual ID","name":"Individual ID","type":"character"},{"id":"Clutch Completion","name":"Clutch Completion","type":"character"},{"id":"Date Egg","name":"Date Egg","type":"Date"},{"id":"Culmen Length (mm)","name":"Culmen Length (mm)","type":"numeric"},{"id":"Culmen Depth (mm)","name":"Culmen Depth (mm)","type":"numeric"},{"id":"Flipper Length (mm)","name":"Flipper Length (mm)","type":"numeric"},{"id":"Body Mass (g)","name":"Body Mass (g)","type":"numeric"},{"id":"Sex","name":"Sex","type":"character"},{"id":"Delta 15 N (o/oo)","name":"Delta 15 N (o/oo)","type":"numeric"},{"id":"Delta 13 C (o/oo)","name":"Delta 13 C (o/oo)","type":"numeric"},{"id":"Comments","name":"Comments","type":"character"}],"dataKey":"0b3067ef925454c1c1b0e26d569b6025"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 </section>
 <section id="rhandsontablerhandsontable" class="level1">
 <h1>rhandsontable::rhandsontable()</h1>
 <p>This is a cross-reference to <strong>?@tbl-rhandsontable</strong>, rendered with the package <a href="https://jrowen.github.io/rhandsontable/">rhandsontable</a> version 0.3.8.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -3694,11 +3685,16 @@ Note
 <p>Only HTML</p>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
+<div id="tbl-rhandsontable" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="rhandsontable::rhandsontable()">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
-<div id="htmlwidget-ec4ada6b9a6ce5d342cf" style="width:672px;height:480px;" class="rhandsontable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ec4ada6b9a6ce5d342cf">{"x":{"data":[{"studyName":"PAL0708","Sample Number":1,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N1A1","Clutch Completion":"Yes","Date Egg":"11/11/2007","Culmen Length (mm)":39.1,"Culmen Depth (mm)":18.7,"Flipper Length (mm)":181,"Body Mass (g)":3750,"Sex":"MALE","Delta 15 N (o/oo)":null,"Delta 13 C (o/oo)":null,"Comments":"Not enough blood for isotopes."},{"studyName":"PAL0708","Sample Number":2,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N1A2","Clutch Completion":"Yes","Date Egg":"11/11/2007","Culmen Length (mm)":39.5,"Culmen Depth (mm)":17.4,"Flipper Length (mm)":186,"Body Mass (g)":3800,"Sex":"FEMALE","Delta 15 N (o/oo)":8.9496,"Delta 13 C (o/oo)":-24.6945,"Comments":null},{"studyName":"PAL0708","Sample Number":3,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N2A1","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":40.3,"Culmen Depth (mm)":18,"Flipper Length (mm)":195,"Body Mass (g)":3250,"Sex":"FEMALE","Delta 15 N (o/oo)":8.3682,"Delta 13 C (o/oo)":-25.333,"Comments":null},{"studyName":"PAL0708","Sample Number":4,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N2A2","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":null,"Culmen Depth (mm)":null,"Flipper Length (mm)":null,"Body Mass (g)":null,"Sex":null,"Delta 15 N (o/oo)":null,"Delta 13 C (o/oo)":null,"Comments":"Adult not sampled."},{"studyName":"PAL0708","Sample Number":5,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N3A1","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":36.7,"Culmen Depth (mm)":19.3,"Flipper Length (mm)":193,"Body Mass (g)":3450,"Sex":"FEMALE","Delta 15 N (o/oo)":8.7665,"Delta 13 C (o/oo)":-25.3243,"Comments":null},{"studyName":"PAL0708","Sample Number":6,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N3A2","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":39.3,"Culmen Depth (mm)":20.6,"Flipper Length (mm)":190,"Body Mass (g)":3650,"Sex":"MALE","Delta 15 N (o/oo)":8.665,"Delta 13 C (o/oo)":-25.298,"Comments":null},{"studyName":"PAL0708","Sample Number":7,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N4A1","Clutch Completion":"No","Date Egg":"11/15/2007","Culmen Length (mm)":38.9,"Culmen Depth (mm)":17.8,"Flipper Length (mm)":181,"Body Mass (g)":3625,"Sex":"FEMALE","Delta 15 N (o/oo)":9.1872,"Delta 13 C (o/oo)":-25.218,"Comments":"Nest never observed with full clutch."},{"studyName":"PAL0708","Sample Number":8,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N4A2","Clutch Completion":"No","Date Egg":"11/15/2007","Culmen Length (mm)":39.2,"Culmen Depth (mm)":19.6,"Flipper Length (mm)":195,"Body Mass (g)":4675,"Sex":"MALE","Delta 15 N (o/oo)":9.4606,"Delta 13 C (o/oo)":-24.8996,"Comments":"Nest never observed with full clutch."},{"studyName":"PAL0708","Sample Number":9,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N5A1","Clutch Completion":"Yes","Date Egg":"11/09/2007","Culmen Length (mm)":34.1,"Culmen Depth (mm)":18.1,"Flipper Length (mm)":193,"Body Mass (g)":3475,"Sex":null,"Delta 15 N (o/oo)":null,"Delta 13 C (o/oo)":null,"Comments":"No blood sample obtained."},{"studyName":"PAL0708","Sample Number":10,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N5A2","Clutch Completion":"Yes","Date Egg":"11/09/2007","Culmen Length (mm)":42,"Culmen Depth (mm)":20.2,"Flipper Length (mm)":190,"Body Mass (g)":4250,"Sex":null,"Delta 15 N (o/oo)":9.1336,"Delta 13 C (o/oo)":-25.0937,"Comments":"No blood sample obtained for sexing."}],"rClass":["tbl_df","tbl","data.frame"],"rColClasses":{"studyName":"character","Sample Number":"numeric","Species":"character","Region":"character","Island":"character","Stage":"character","Individual ID":"character","Clutch Completion":"character","Date Egg":"Date","Culmen Length (mm)":"numeric","Culmen Depth (mm)":"numeric","Flipper Length (mm)":"numeric","Body Mass (g)":"numeric","Sex":"character","Delta 15 N (o/oo)":"numeric","Delta 13 C (o/oo)":"numeric","Comments":"character"},"rColnames":["studyName","Sample Number","Species","Region","Island","Stage","Individual ID","Clutch Completion","Date Egg","Culmen Length (mm)","Culmen Depth (mm)","Flipper Length (mm)","Body Mass (g)","Sex","Delta 15 N (o/oo)","Delta 13 C (o/oo)","Comments"],"rColHeaders":["studyName","Sample Number","Species","Region","Island","Stage","Individual ID","Clutch Completion","Date Egg","Culmen Length (mm)","Culmen Depth (mm)","Flipper Length (mm)","Body Mass (g)","Sex","Delta 15 N (o/oo)","Delta 13 C (o/oo)","Comments"],"rRowHeaders":null,"rDataDim":[10,17],"selectCallback":false,"colHeaders":["studyName","Sample Number","Species","Region","Island","Stage","Individual ID","Clutch Completion","Date Egg","Culmen Length (mm)","Culmen Depth (mm)","Flipper Length (mm)","Body Mass (g)","Sex","Delta 15 N (o/oo)","Delta 13 C (o/oo)","Comments"],"rowHeaders":["1","2","3","4","5","6","7","8","9","10"],"columns":[{"type":"text","renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"date","correctFormat":true,"dateFormat":"MM/DD/YYYY","renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null}],"width":null,"height":null,"debug":0,"search":false,"stretchH":"none","comments":false,"contextMenu":{"items":{"row_above":[],"row_below":[],"remove_row":[],"hsep3":{"name":"---------"},"undo":[],"redo":[],"hsep4":{"name":"---------"},"alignment":[]}}},"evals":["columns.0.renderer","columns.1.renderer","columns.2.renderer","columns.3.renderer","columns.4.renderer","columns.5.renderer","columns.6.renderer","columns.7.renderer","columns.8.renderer","columns.9.renderer","columns.10.renderer","columns.11.renderer","columns.12.renderer","columns.13.renderer","columns.14.renderer","columns.15.renderer","columns.16.renderer"],"jsHooks":[]}</script>
+<div class="rhandsontable html-widget html-fill-item" id="htmlwidget-09729afdb8fa776978f7" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-09729afdb8fa776978f7">{"x":{"data":[{"studyName":"PAL0708","Sample Number":1,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N1A1","Clutch Completion":"Yes","Date Egg":"11/11/2007","Culmen Length (mm)":39.1,"Culmen Depth (mm)":18.7,"Flipper Length (mm)":181,"Body Mass (g)":3750,"Sex":"MALE","Delta 15 N (o/oo)":null,"Delta 13 C (o/oo)":null,"Comments":"Not enough blood for isotopes."},{"studyName":"PAL0708","Sample Number":2,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N1A2","Clutch Completion":"Yes","Date Egg":"11/11/2007","Culmen Length (mm)":39.5,"Culmen Depth (mm)":17.4,"Flipper Length (mm)":186,"Body Mass (g)":3800,"Sex":"FEMALE","Delta 15 N (o/oo)":8.9496,"Delta 13 C (o/oo)":-24.6945,"Comments":null},{"studyName":"PAL0708","Sample Number":3,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N2A1","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":40.3,"Culmen Depth (mm)":18,"Flipper Length (mm)":195,"Body Mass (g)":3250,"Sex":"FEMALE","Delta 15 N (o/oo)":8.3682,"Delta 13 C (o/oo)":-25.333,"Comments":null},{"studyName":"PAL0708","Sample Number":4,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N2A2","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":null,"Culmen Depth (mm)":null,"Flipper Length (mm)":null,"Body Mass (g)":null,"Sex":null,"Delta 15 N (o/oo)":null,"Delta 13 C (o/oo)":null,"Comments":"Adult not sampled."},{"studyName":"PAL0708","Sample Number":5,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N3A1","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":36.7,"Culmen Depth (mm)":19.3,"Flipper Length (mm)":193,"Body Mass (g)":3450,"Sex":"FEMALE","Delta 15 N (o/oo)":8.7665,"Delta 13 C (o/oo)":-25.3243,"Comments":null},{"studyName":"PAL0708","Sample Number":6,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N3A2","Clutch Completion":"Yes","Date Egg":"11/16/2007","Culmen Length (mm)":39.3,"Culmen Depth (mm)":20.6,"Flipper Length (mm)":190,"Body Mass (g)":3650,"Sex":"MALE","Delta 15 N (o/oo)":8.665,"Delta 13 C (o/oo)":-25.298,"Comments":null},{"studyName":"PAL0708","Sample Number":7,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N4A1","Clutch Completion":"No","Date Egg":"11/15/2007","Culmen Length (mm)":38.9,"Culmen Depth (mm)":17.8,"Flipper Length (mm)":181,"Body Mass (g)":3625,"Sex":"FEMALE","Delta 15 N (o/oo)":9.1872,"Delta 13 C (o/oo)":-25.218,"Comments":"Nest never observed with full clutch."},{"studyName":"PAL0708","Sample Number":8,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N4A2","Clutch Completion":"No","Date Egg":"11/15/2007","Culmen Length (mm)":39.2,"Culmen Depth (mm)":19.6,"Flipper Length (mm)":195,"Body Mass (g)":4675,"Sex":"MALE","Delta 15 N (o/oo)":9.4606,"Delta 13 C (o/oo)":-24.8996,"Comments":"Nest never observed with full clutch."},{"studyName":"PAL0708","Sample Number":9,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N5A1","Clutch Completion":"Yes","Date Egg":"11/09/2007","Culmen Length (mm)":34.1,"Culmen Depth (mm)":18.1,"Flipper Length (mm)":193,"Body Mass (g)":3475,"Sex":null,"Delta 15 N (o/oo)":null,"Delta 13 C (o/oo)":null,"Comments":"No blood sample obtained."},{"studyName":"PAL0708","Sample Number":10,"Species":"Adelie Penguin (Pygoscelis adeliae)","Region":"Anvers","Island":"Torgersen","Stage":"Adult, 1 Egg Stage","Individual ID":"N5A2","Clutch Completion":"Yes","Date Egg":"11/09/2007","Culmen Length (mm)":42,"Culmen Depth (mm)":20.2,"Flipper Length (mm)":190,"Body Mass (g)":4250,"Sex":null,"Delta 15 N (o/oo)":9.1336,"Delta 13 C (o/oo)":-25.0937,"Comments":"No blood sample obtained for sexing."}],"rClass":["tbl_df","tbl","data.frame"],"rColClasses":{"studyName":"character","Sample Number":"numeric","Species":"character","Region":"character","Island":"character","Stage":"character","Individual ID":"character","Clutch Completion":"character","Date Egg":"Date","Culmen Length (mm)":"numeric","Culmen Depth (mm)":"numeric","Flipper Length (mm)":"numeric","Body Mass (g)":"numeric","Sex":"character","Delta 15 N (o/oo)":"numeric","Delta 13 C (o/oo)":"numeric","Comments":"character"},"rColnames":["studyName","Sample Number","Species","Region","Island","Stage","Individual ID","Clutch Completion","Date Egg","Culmen Length (mm)","Culmen Depth (mm)","Flipper Length (mm)","Body Mass (g)","Sex","Delta 15 N (o/oo)","Delta 13 C (o/oo)","Comments"],"rColHeaders":["studyName","Sample Number","Species","Region","Island","Stage","Individual ID","Clutch Completion","Date Egg","Culmen Length (mm)","Culmen Depth (mm)","Flipper Length (mm)","Body Mass (g)","Sex","Delta 15 N (o/oo)","Delta 13 C (o/oo)","Comments"],"rRowHeaders":null,"rDataDim":[10,17],"selectCallback":false,"colHeaders":["studyName","Sample Number","Species","Region","Island","Stage","Individual ID","Clutch Completion","Date Egg","Culmen Length (mm)","Culmen Depth (mm)","Flipper Length (mm)","Body Mass (g)","Sex","Delta 15 N (o/oo)","Delta 13 C (o/oo)","Comments"],"rowHeaders":["1","2","3","4","5","6","7","8","9","10"],"columns":[{"type":"text","renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"date","correctFormat":true,"dateFormat":"MM/DD/YYYY","renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"numeric","numericFormat":{"pattern":"0.00"},"renderer":"customRenderer","default":null},{"type":"text","renderer":"customRenderer","default":null}],"width":null,"height":null,"debug":0,"search":false,"stretchH":"none","comments":false,"contextMenu":{"items":{"row_above":[],"row_below":[],"remove_row":[],"hsep3":{"name":"---------"},"undo":[],"redo":[],"hsep4":{"name":"---------"},"alignment":[]}}},"evals":["columns.0.renderer","columns.1.renderer","columns.2.renderer","columns.3.renderer","columns.4.renderer","columns.5.renderer","columns.6.renderer","columns.7.renderer","columns.8.renderer","columns.9.renderer","columns.10.renderer","columns.11.renderer","columns.12.renderer","columns.13.renderer","columns.14.renderer","columns.15.renderer","columns.16.renderer"],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 </section>
@@ -3709,57 +3705,81 @@ Note
 <section id="stargazerstargazer" class="level1">
 <h1>stargazer::stargazer</h1>
 <p>This is a cross-reference to <strong>?@tbl-stargazer</strong>, rendered with the package <a href="https://cran.r-project.org/web/packages/stargazer/index.html">stargazer</a> version 5.2.3.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>results: asis</code> (i.e., creates LaTeX output)</p>
+<p><code>output: asis</code> (i.e., creates LaTeX output)</p>
 </div>
 </div>
-<div class="cell">
-% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com % Date and time: do, dec 15, 2022 - 19:39:59
+<div id="tbl-stargazer" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="stargazer::stargazer()">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com % Date and time: Thu, Dec 21, 2023 - 14:22:30
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+
+</div>
+</div>
 </div>
 </section>
 <section id="xtablextable" class="level1">
 <h1>xtable::xtable()</h1>
 <p>This is a cross-reference to <strong>?@tbl-xtable</strong>, rendered with the package <a href="https://cran.r-project.org/web/packages/xtable/index.html">xtable</a> version 1.8.4.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>results: asis</code> (i.e., creates LaTeX output)</p>
+<p><code>output: asis</code> (i.e., creates LaTeX output)</p>
 </div>
 </div>
-<div class="cell">
-% latex table generated in R 4.2.2 by xtable 1.8-4 package % Thu Dec 15 19:40:00 2022
+<div id="tbl-xtable" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="xtable::xtable()">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+% latex table generated in R 4.2.1 by xtable 1.8-4 package % Thu Dec 21 14:22:30 2023
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+
+</div>
+</div>
 </div>
 </section>
 <section id="tangramtangram" class="level1">
 <h1>tangram::tangram()</h1>
-<p>This is a cross-reference to <strong>?@tbl-tangram</strong>, rendered with the package <a href="https://github.com/spgarbet/tangram">tangram</a> version 0.8.1.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<p>This is a cross-reference to <strong>?@tbl-tangram</strong>, rendered with the package <a href="https://github.com/spgarbet/tangram">tangram</a> version 0.8.2.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>results: asis</code> (i.e., creates LaTeX output)</p>
+<p><code>output: asis</code> (i.e., creates LaTeX output)</p>
 </div>
 </div>
 <div id="tbl-tangram" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="tangram::tangram()">
@@ -3784,18 +3804,8 @@ PAL0708 10 Adelie Penguin (Pygoscelis adeliae) Anvers Torgersen Adult, 1 Egg Sta
 <section id="ztableztable" class="level1">
 <h1>ztable::ztable()</h1>
 <p>This is a cross-reference to <strong>?@tbl-ztable</strong>, rendered with the package <a href="https://github.com/cardiomoon/ztable">ztable</a> version 0.2.3.</p>
-<div class="callout-error callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Error
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-error">
 <p>Could not get package to work - issue with ‘list’ output.</p>
-</div>
 </div>
 <div id="tbl-ztable" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="ztable::ztable()">
 
@@ -3803,51 +3813,52 @@ Error
 </section>
 <section id="condformatcondformat" class="level1">
 <h1>condformat::condformat()</h1>
-<p>This is a cross-reference to <a href="#tbl-condformat">Table&nbsp;5</a>, rendered with the package <a href="https://github.com/cardiomoon/ztable">condformat</a> version 0.10.0.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<p>This is a cross-reference to <a href="#tbl-condformat">Table&nbsp;5</a>, rendered with the package <a href="https://github.com/cardiomoon/ztable">condformat</a> version 0.10.1.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>results: asis</code> (i.e., creates LaTeX output)</p>
+<p><code>output: asis</code> (i.e., creates LaTeX output)</p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-condformat">
-
-<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;"><caption>Table&nbsp;5:  condformat::condformat() </caption>
+<table class="gmisc_table table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;5: condformat::condformat()</caption>
 <thead>
-<tr><th style="border-bottom: 1px solid grey; border-top: 2px solid grey;"></th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">studyName</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Sample Number</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Species</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Region</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Island</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Stage</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Individual ID</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Clutch Completion</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Date Egg</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Culmen Length (mm)</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Culmen Depth (mm)</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Flipper Length (mm)</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Body Mass (g)</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Sex</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Delta 15 N (o/oo)</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Delta 13 C (o/oo)</th>
-<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Comments</th>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; border-bottom: 1px solid grey; border-top: 2px solid grey;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">studyName</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Sample Number</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Species</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Region</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Island</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Stage</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Individual ID</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Clutch Completion</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Date Egg</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Culmen Length (mm)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Culmen Depth (mm)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Flipper Length (mm)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Body Mass (g)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Sex</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Delta 15 N (o/oo)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Delta 13 C (o/oo)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey;">Comments</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 1</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3860,14 +3871,14 @@ Note
 <td style="text-align: center;">181</td>
 <td style="text-align: center;">3750</td>
 <td style="text-align: center;">MALE</td>
-<td style="text-align: center;">     NA</td>
-<td style="text-align: center;">       NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
 <td style="text-align: center;">Not enough blood for isotopes.</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">2</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 2</td>
+<td style="text-align: center;">2</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3884,10 +3895,10 @@ Note
 <td style="text-align: center;">-24.69454</td>
 <td style="text-align: center;">NA</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">3</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 3</td>
+<td style="text-align: center;">3</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3904,10 +3915,10 @@ Note
 <td style="text-align: center;">-25.33302</td>
 <td style="text-align: center;">NA</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">4</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 4</td>
+<td style="text-align: center;">4</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3915,19 +3926,19 @@ Note
 <td style="text-align: center;">N2A2</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">2007-11-16</td>
-<td style="text-align: center;">  NA</td>
-<td style="text-align: center;">  NA</td>
-<td style="text-align: center;"> NA</td>
-<td style="text-align: center;">  NA</td>
 <td style="text-align: center;">NA</td>
-<td style="text-align: center;">     NA</td>
-<td style="text-align: center;">       NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
 <td style="text-align: center;">Adult not sampled.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">5</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 5</td>
+<td style="text-align: center;">5</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3944,10 +3955,10 @@ Note
 <td style="text-align: center;">-25.32426</td>
 <td style="text-align: center;">NA</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">6</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 6</td>
+<td style="text-align: center;">6</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3964,10 +3975,10 @@ Note
 <td style="text-align: center;">-25.29805</td>
 <td style="text-align: center;">NA</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">7</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 7</td>
+<td style="text-align: center;">7</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -3984,10 +3995,10 @@ Note
 <td style="text-align: center;">-25.21799</td>
 <td style="text-align: center;">Nest never observed with full clutch.</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">8</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 8</td>
+<td style="text-align: center;">8</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -4004,10 +4015,10 @@ Note
 <td style="text-align: center;">-24.89958</td>
 <td style="text-align: center;">Nest never observed with full clutch.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">9</td>
 <td style="text-align: center;">PAL0708</td>
-<td style="text-align: center;"> 9</td>
+<td style="text-align: center;">9</td>
 <td style="text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
 <td style="text-align: center;">Anvers</td>
 <td style="text-align: center;">Torgersen</td>
@@ -4020,29 +4031,29 @@ Note
 <td style="text-align: center;">193</td>
 <td style="text-align: center;">3475</td>
 <td style="text-align: center;">NA</td>
-<td style="text-align: center;">     NA</td>
-<td style="text-align: center;">       NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
 <td style="text-align: center;">No blood sample obtained.</td>
 </tr>
-<tr>
-<td style="border-bottom: 2px solid grey; text-align: left;">10</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">PAL0708</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">10</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">Adelie Penguin (Pygoscelis adeliae)</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">Anvers</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">Torgersen</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">Adult, 1 Egg Stage</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">N5A2</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">Yes</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">2007-11-09</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">42.0</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">20.2</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">190</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">4250</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">NA</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">9.13362</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">-25.09368</td>
-<td style="border-bottom: 2px solid grey; text-align: center;">No blood sample obtained for sexing.</td>
+<tr class="even">
+<td style="text-align: left; border-bottom: 2px solid grey;">10</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">PAL0708</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">10</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">Adelie Penguin (Pygoscelis adeliae)</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">Anvers</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">Torgersen</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">Adult, 1 Egg Stage</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">N5A2</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">Yes</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">2007-11-09</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">42.0</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">20.2</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">190</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">4250</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">NA</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">9.13362</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">-25.09368</td>
+<td style="text-align: center; border-bottom: 2px solid grey;">No blood sample obtained for sexing.</td>
 </tr>
 </tbody>
 </table>
@@ -4053,12 +4064,12 @@ Note
 <section id="panderpandoc.table" class="level1">
 <h1>pander::pandoc.table()</h1>
 <p>This is a cross-reference to <a href="#tbl-pander">Table&nbsp;6</a>, rendered with the package <a href="https://rapporter.github.io/pander/">pander</a> version 0.6.5.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -4072,7 +4083,7 @@ Note
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-pander-1" class="quarto-layout-cell quarto-layout-cell-subref" data-ref-parent="tbl-pander" style="flex-basis: 100.0%;justify-content: center;">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>(a) Table continues below</caption>
 <colgroup>
 <col style="width: 15%">
@@ -4167,7 +4178,7 @@ Note
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-pander-2" class="quarto-layout-cell quarto-layout-cell-subref" data-ref-parent="tbl-pander" style="flex-basis: 100.0%;justify-content: center;">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>(b) Table continues below</caption>
 <colgroup>
 <col style="width: 29%">
@@ -4250,7 +4261,7 @@ Note
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-pander-3" class="quarto-layout-cell quarto-layout-cell-subref" data-ref-parent="tbl-pander" style="flex-basis: 100.0%;justify-content: center;">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>(c) Table continues below</caption>
 <colgroup>
 <col style="width: 26%">
@@ -4333,7 +4344,7 @@ Note
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 24%">
@@ -4417,19 +4428,9 @@ Note
 </section>
 <section id="papajaapa_table" class="level1">
 <h1>papaja::apa_table()</h1>
-<p>This is a cross-reference to <strong>?@tbl-papaja</strong>, rendered with the package <a href="https://rapporter.github.io/pander/">papaja</a> version 0.1.1.</p>
-<div class="callout-error callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Error
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>This is a cross-reference to <strong>?@tbl-papaja</strong>, rendered with the package <a href="https://rapporter.github.io/pander/">papaja</a> version 0.1.2.</p>
+<div class="callout-error">
 <p><code>compilation failed- error Extra }, or forgotten \endgroup. l.6308 ...label{tbl-papaja}papaja::apa\_table() }}</code></p>
-</div>
 </div>
 <div id="tbl-papaja" class="cell tbl-parent quarto-layout-panel" data-tbl-cap="papaja::apa_table()">
 
@@ -4437,19 +4438,31 @@ Error
 </section>
 <section id="gtgt" class="level1">
 <h1>gt::gt()</h1>
-<p>This is a cross-reference to <a href="#tbl-gt">Table&nbsp;7</a>, rendered with the package <a href="https://gt.rstudio.com/">gt</a> version 0.8.0.</p>
+<p>This is a cross-reference to <a href="#tbl-gt">Table&nbsp;7</a>, rendered with the package <a href="https://gt.rstudio.com/">gt</a> version 0.10.0.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-gt">
 
-<div id="oljumnfhvk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="nxptgkdzjk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nxptgkdzjk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#oljumnfhvk) .gt_table {
+#nxptgkdzjk thead, #nxptgkdzjk tbody, #nxptgkdzjk tfoot, #nxptgkdzjk tr, #nxptgkdzjk td, #nxptgkdzjk th {
+  border-style: none;
+}
+
+#nxptgkdzjk p {
+  margin: 0;
+  padding: 0;
+}
+
+#nxptgkdzjk .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -4472,24 +4485,12 @@ Error
   border-left-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#oljumnfhvk) .gt_caption {
+#nxptgkdzjk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#oljumnfhvk) .gt_title {
+#nxptgkdzjk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4501,25 +4502,37 @@ Error
   border-bottom-width: 0;
 }
 
-:where(#oljumnfhvk) .gt_subtitle {
+#nxptgkdzjk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#oljumnfhvk) .gt_bottom_border {
+#nxptgkdzjk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nxptgkdzjk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_col_headings {
+#nxptgkdzjk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4534,7 +4547,7 @@ Error
   border-right-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_col_heading {
+#nxptgkdzjk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4554,7 +4567,7 @@ Error
   overflow-x: hidden;
 }
 
-:where(#oljumnfhvk) .gt_column_spanner_outer {
+#nxptgkdzjk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4566,15 +4579,15 @@ Error
   padding-right: 4px;
 }
 
-:where(#oljumnfhvk) .gt_column_spanner_outer:first-child {
+#nxptgkdzjk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#oljumnfhvk) .gt_column_spanner_outer:last-child {
+#nxptgkdzjk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#oljumnfhvk) .gt_column_spanner {
+#nxptgkdzjk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4586,7 +4599,11 @@ Error
   width: 100%;
 }
 
-:where(#oljumnfhvk) .gt_group_heading {
+#nxptgkdzjk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#nxptgkdzjk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4612,7 +4629,7 @@ Error
   text-align: left;
 }
 
-:where(#oljumnfhvk) .gt_empty_group_heading {
+#nxptgkdzjk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4627,15 +4644,15 @@ Error
   vertical-align: middle;
 }
 
-:where(#oljumnfhvk) .gt_from_md > :first-child {
+#nxptgkdzjk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#oljumnfhvk) .gt_from_md > :last-child {
+#nxptgkdzjk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#oljumnfhvk) .gt_row {
+#nxptgkdzjk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4654,7 +4671,7 @@ Error
   overflow-x: hidden;
 }
 
-:where(#oljumnfhvk) .gt_stub {
+#nxptgkdzjk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4667,7 +4684,7 @@ Error
   padding-right: 5px;
 }
 
-:where(#oljumnfhvk) .gt_stub_row_group {
+#nxptgkdzjk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4681,11 +4698,15 @@ Error
   vertical-align: top;
 }
 
-:where(#oljumnfhvk) .gt_row_group_first td {
+#nxptgkdzjk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#oljumnfhvk) .gt_summary_row {
+#nxptgkdzjk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nxptgkdzjk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4695,16 +4716,16 @@ Error
   padding-right: 5px;
 }
 
-:where(#oljumnfhvk) .gt_first_summary_row {
+#nxptgkdzjk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_first_summary_row.thick {
+#nxptgkdzjk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#oljumnfhvk) .gt_last_summary_row {
+#nxptgkdzjk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4714,7 +4735,7 @@ Error
   border-bottom-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_grand_summary_row {
+#nxptgkdzjk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4724,7 +4745,7 @@ Error
   padding-right: 5px;
 }
 
-:where(#oljumnfhvk) .gt_first_grand_summary_row {
+#nxptgkdzjk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4734,11 +4755,21 @@ Error
   border-top-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_striped {
+#nxptgkdzjk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nxptgkdzjk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#oljumnfhvk) .gt_table_body {
+#nxptgkdzjk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4747,7 +4778,7 @@ Error
   border-bottom-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_footnotes {
+#nxptgkdzjk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4761,30 +4792,8 @@ Error
   border-right-color: #D3D3D3;
 }
 
-:where(#oljumnfhvk) .gt_footnote {
+#nxptgkdzjk .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#oljumnfhvk) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#oljumnfhvk) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4792,71 +4801,92 @@ Error
   padding-right: 5px;
 }
 
-:where(#oljumnfhvk) .gt_left {
+#nxptgkdzjk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nxptgkdzjk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nxptgkdzjk .gt_left {
   text-align: left;
 }
 
-:where(#oljumnfhvk) .gt_center {
+#nxptgkdzjk .gt_center {
   text-align: center;
 }
 
-:where(#oljumnfhvk) .gt_right {
+#nxptgkdzjk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#oljumnfhvk) .gt_font_normal {
+#nxptgkdzjk .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#oljumnfhvk) .gt_font_bold {
+#nxptgkdzjk .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#oljumnfhvk) .gt_font_italic {
+#nxptgkdzjk .gt_font_italic {
   font-style: italic;
 }
 
-:where(#oljumnfhvk) .gt_super {
+#nxptgkdzjk .gt_super {
   font-size: 65%;
 }
 
-:where(#oljumnfhvk) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#nxptgkdzjk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#oljumnfhvk) .gt_asterisk {
+#nxptgkdzjk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#oljumnfhvk) .gt_indent_1 {
+#nxptgkdzjk .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#oljumnfhvk) .gt_indent_2 {
+#nxptgkdzjk .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#oljumnfhvk) .gt_indent_3 {
+#nxptgkdzjk .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#oljumnfhvk) .gt_indent_4 {
+#nxptgkdzjk .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#oljumnfhvk) .gt_indent_5 {
+#nxptgkdzjk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>Table&nbsp;7:  gt::gt() </caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;7:  <p>gt::gt()</p> </caption>
+  <thead>
+    
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="studyName">studyName</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sample Number">Sample Number</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Species">Species</th>

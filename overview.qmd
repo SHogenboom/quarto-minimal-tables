@@ -8,7 +8,6 @@ execute:
 ```{r}
 #| label: setup
 
-
 # LOAD: dat_penguins_small
 dat_penguins_small <- palmerpenguins::penguins_raw[1:10, ]
 ```
@@ -125,13 +124,13 @@ Only works for output from the `broom` package, so not regular datasets.
 This is a cross-reference to @tbl-stargazer, rendered with the package [stargazer](https://cran.r-project.org/web/packages/stargazer/index.html) version `r utils::packageVersion("stargazer")`.
 
 ::: {.callout-note}
-`results: asis` (i.e., creates LaTeX output)
+`output: asis` (i.e., creates LaTeX output)
 :::
 
 ```{r}
 #| label: tbl-stargazer
 #| tbl-cap: "stargazer::stargazer()"
-#| results: asis
+#| output: asis
 
 stargazer::stargazer(dat_penguins_small)
 ```
@@ -141,14 +140,14 @@ stargazer::stargazer(dat_penguins_small)
 This is a cross-reference to @tbl-xtable, rendered with the package [xtable](https://cran.r-project.org/web/packages/xtable/index.html) version `r utils::packageVersion("xtable")`.
 
 ::: {.callout-note}
-`results: asis` (i.e., creates LaTeX output)
+`output: asis` (i.e., creates LaTeX output)
 :::
 
 
 ```{r}
 #| label: tbl-xtable
 #| tbl-cap: "xtable::xtable()"
-#| results: asis
+#| output: asis
 
 xtable::xtable(dat_penguins_small)
 ```
@@ -158,13 +157,13 @@ xtable::xtable(dat_penguins_small)
 This is a cross-reference to @tbl-tangram, rendered with the package [tangram](https://github.com/spgarbet/tangram) version `r utils::packageVersion("tangram")`.
 
 ::: {.callout-note}
-`results: asis` (i.e., creates LaTeX output)
+`output: asis` (i.e., creates LaTeX output)
 :::
 
 ```{r}
 #| label: tbl-tangram
 #| tbl-cap: "tangram::tangram()"
-#| results: asis
+#| output: asis
 
 tangram::tangram(dat_penguins_small)
 ```
@@ -190,7 +189,7 @@ print(tmp)
 This is a cross-reference to @tbl-condformat, rendered with the package [condformat](https://github.com/cardiomoon/ztable) version `r utils::packageVersion("condformat")`.
 
 ::: {.callout-note}
-`results: asis` (i.e., creates LaTeX output)
+`output: asis` (i.e., creates LaTeX output)
 :::
 
 ```{r}
@@ -212,7 +211,7 @@ This is a cross-reference to @tbl-pander, rendered with the package [pander](htt
 ```{r}
 #| label: tbl-pander
 #| tbl-cap: "pander::pandoc.table()"
-#| results: asis
+#| output: asis
 
 pander::pandoc.table(dat_penguins_small)
 ```
